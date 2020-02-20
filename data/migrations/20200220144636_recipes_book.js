@@ -11,16 +11,12 @@ exports.up = function(knex, Promise) {
       .createTable("instructions", tbl => {
         tbl.increments();
         tbl
-          .integer("step_id")
-          .unsigned()
-          .notNullable();
-        tbl
           .integer("recipe_id")
           .unsigned()
           .notNullable()
           .references("id")
           .inTable("recipes");
-        tbl.text("instructions").notNullable();
+        tbl.text("instruction").notNullable();
       })
       .createTable("recipe_book", tbl => {
         tbl.increments();
@@ -43,7 +39,7 @@ exports.up = function(knex, Promise) {
           .onDelete("RESTRICT")
           .onUpdate("CASCADE");
         tbl
-          .integer("instruction_id")
+          .integer("step_id")
           .unsigned()
           .notNullable()
           .references("id")
