@@ -39,7 +39,7 @@
 
 7. Create a `data` folder in the root and then make `migrations` and `seeds` folders inside it. ALSO add a `dbConfig.js` file.
 
-To get your migrations file to show migrations, you will have to run `knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal.
+To get your migrations file to show migrations, you will have to run `npx knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal.
 
 8. Create migrations files!
 Here is where you make your tables! Your migrations table/s will need an exports.up and an exports.down that look something like this:
@@ -53,13 +53,14 @@ Here is where you make your tables! Your migrations table/s will need an exports
 
         exports.down = function(knex, Promise) {
             return knex.schema.dropTableIfExists("recipe_book");
-        };`
+        };
 
-Once you have added in the relevant info and made however many tables you want (remember to make separate files for separate tables, please), type `knex migrate:latest` in your terminal to add them to the `data > migrations` folder.
+Once you have added in the relevant info and made however many tables you want (remember to make separate files for separate tables, please), type `npx knex migrate:latest` in your terminal to add them to the `data > migrations` folder.
 
-    8a. To update a migrations table do `knex migrate:make <your table name>-schema-update` and then update it with the info you need. Then do a `knex migrate:latest`
+8a. To update a migrations table do 
+`npx knex migrate:make <your table name>-schema-update` and then update it with the info you need. Then do a `npx knex migrate:latest`
     
-    8b. If you fucked things up in your migration file and want to fix them, you can rollback your migration with `knex migrate:rollback`
+8b. If you fucked things up in your migration file and want to fix them, you can rollback your migration with `knex migrate:rollback`
 
 9. Making seeds! (Super similar to making migrations) -- Seeds pre-populate your tables so they don't look sad and empty. To make seeds, type `knex seed:make 001-<your seedName> (or 002-seedName, 003-seedName, etc)` in your terminal and when you hit save, the `seed` file will show up in `data > seeds`, ideally in the `data` folder. (You can make sure of this in your knexfile.js though, so make sure of it!)
 
