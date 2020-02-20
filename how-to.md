@@ -8,7 +8,7 @@
         "server": "nodemon index.js"
     },
 
-4. install `npm` with `npm i`, then download your dependencies -- `npm i knex sqlite3 helmet express cors` and whatever other dependencies you need/want. 
+4. install `npm` with `npm i`, then download your dependencies -- `npm i knex sqlite3 nodemon express helmet cors` and whatever other dependencies you need/want. 
 
 5. create your `knexfile.js` with `knex init` or `npx knex init`
 
