@@ -60,8 +60,8 @@ Once you have added in the relevant info and made however many tables you want (
 8a. To update a migrations table do 
 `npx knex migrate:make <your table name>-schema-update` and then update it with the info you need. Then do a `npx knex migrate:latest`
     
-8b. If you fucked things up in your migration file and want to fix them, you can rollback your migration with `knex migrate:rollback`
+8b. If you fucked things up in your migration file and want to fix them, you can rollback your migration with `npx knex migrate:rollback`
 
-9. Making seeds! (Super similar to making migrations) -- Seeds pre-populate your tables so they don't look sad and empty. To make seeds, type `knex seed:make 001-<your seedName> (or 002-seedName, 003-seedName, etc)` in your terminal and when you hit save, the `seed` file will show up in `data > seeds`, ideally in the `data` folder. (You can make sure of this in your knexfile.js though, so make sure of it!)
+9. Making seeds! (Super similar to making migrations) -- Seeds pre-populate your tables so they don't look sad and empty. To make seeds, type `npx knex seed:make 001-<your seedName> (or 002-seedName, 003-seedName, etc)` in your terminal and when you hit save, the `seed` file will show up in `data > seeds`, ideally in the `data` folder. (You can make sure of this in your knexfile.js though, so make sure of it!)
 
 10. Plan your table -- what does it actually need as columns, etc. Maybe write it out on paper or use that dbDesigner website to make a bunch of tables and figure out where stuff belongs.
