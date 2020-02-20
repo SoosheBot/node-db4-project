@@ -37,12 +37,12 @@
             }, 
             };
 
-7. Create a `data` folder in the root and then make `migrations` and `seeds` folders inside it. ALSO add a `dbConfig.js` file.
-
-To get your migrations file to show migrations, you will have to run `npx knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal.
+7. Create a `data` folder in the root and then make `migrations` and `seeds` folders inside it. ALSO add a `dbConfig.js` file--you will need this in step10.
 
 8. Create migrations files!
-Here is where you make your tables! Your migrations table/s will need an exports.up and an exports.down that look something like this:
+Here is where you make your tables! Plan your table -- what does it actually need as columns, etc. Maybe write it out on paper or use that dbDesigner website to make a bunch of tables and figure out where stuff belongs.
+
+Once you have a design planned, and you're ready to make migrations tables, you will have to run `npx knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal. Migrations table/s need an exports.up and an exports.down that look something like this:
 
        exports.up = function(knex, Promise) {
             return knex.schema.createTable("recipe_book", tbl => {
@@ -62,6 +62,14 @@ Once you have added in the relevant info and made however many tables you want (
     
 8b. If you fucked things up in your migration file and want to fix them, you can rollback your migration with `npx knex migrate:rollback`
 
-9. Making seeds! (Super similar to making migrations) -- Seeds pre-populate your tables so they don't look sad and empty. To make seeds, type `npx knex seed:make 001-<your seedName> (or 002-seedName, 003-seedName, etc)` in your terminal and when you hit save, the `seed` file will show up in `data > seeds`, ideally in the `data` folder. (You can make sure of this in your knexfile.js though, so make sure of it!)
+9. Making seeds! (Super similar to making migrations) -- Seeds pre-populate your tables so they don't look sad and empty. To make seeds, type `npx knex seed:make 001-<your seedName> (or 002-seedName, 003-seedName, etc)` in your terminal and when you hit save, the `seed` file will show up in `data > seeds`, ideally in the `data` folder. (You can make sure of this in your knexfile.js though, so make sure of it!). To run your seeds, do `npx knex seed:run` in the terminal.
 
-10. Plan your table -- what does it actually need as columns, etc. Maybe write it out on paper or use that dbDesigner website to make a bunch of tables and figure out where stuff belongs.
+10. In the `dbConfig.js` file, add content to export all your knex-es. It should look like this:
+    const knex = require('knex');
+    const config = require('../knexfile.js');
+    const db = knex(config.development);
+    module.exports = db;
+
+Then you can run your migrations and seeds with `npx knex migrate:latest` and `npx knex seed:run`. Note--Any time you run a `npx knex migrate:latest`, you need to rerun your seeds. (You can also run it to reset your Insomnia file, if you like.)
+
+
