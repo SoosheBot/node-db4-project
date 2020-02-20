@@ -37,7 +37,9 @@
             }, 
             };
 
-7. Create a `data` folder in the root and then make `migrations` and `seeds` folders inside it. To get your migrations file to show migrations, you will have to run `knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal.
+7. Create a `data` folder in the root and then make `migrations` and `seeds` folders inside it. ALSO add a `dbConfig.js` file.
+
+To get your migrations file to show migrations, you will have to run `knex migrate:make < name of your file here...it cannot have a space between words-- e.g. "knex migrate:make awesome-fileName" >` in the terminal.
 
 8. Create migrations files!
 Here is where you make your tables! Your migrations table/s will need an exports.up and an exports.down that look something like this:
