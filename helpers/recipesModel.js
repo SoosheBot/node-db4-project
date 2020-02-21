@@ -2,7 +2,6 @@ const db = require("../data/dbConfig");
 
 module.exports = {
   getRecipes,
-  getIngredients,
   getRecipesId,
   getShoppingList,
   getInstructions
@@ -13,9 +12,6 @@ function getRecipes() {
     return db("recipes");
 };
 
-function getIngredients(){
-    return db("ingredients")
-}
 
 function getRecipesId(id) {
     return db("recipes")
