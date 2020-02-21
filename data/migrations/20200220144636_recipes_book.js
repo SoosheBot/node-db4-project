@@ -41,14 +41,6 @@ exports.up = function(knex, Promise) {
         .inTable("ingredients")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      // tbl
-      //   .integer("step_id")
-      //   .unsigned()
-      //   .notNullable()
-      //   .references("id")
-      //   .inTable("instructions")
-      //   .onDelete("RESTRICT")
-      //   .onUpdate("CASCADE");
     });
 };
 
