@@ -63,4 +63,15 @@ router.get("/:id/instructions", (req, res) => {
     });
 });
 
+router.post("/", (req,res) => {
+  const recipes = {...req.body};
+  Recipes.addRecipes(recipes)
+  .then(recipe => {
+    res.status(201).json(recipe);
+  })
+  .catch(err => {
+    res.status(500).json({ errorMessage:"Could not add recipe."});
+  });
+});
+
 module.exports = router;

@@ -2,11 +2,14 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import RecipeList from "./components/RecipeList";
+import AddRecipe from "./components/AddRecipe"
 
 function App() {
   return (
    <div>
+     <h1>Recipes</h1>
      <RecipeList />
+     <AddRecipe />
    </div>
   );
 }

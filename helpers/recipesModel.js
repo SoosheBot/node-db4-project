@@ -4,7 +4,8 @@ module.exports = {
   getRecipes,
   getRecipesId,
   getShoppingList,
-  getInstructions
+  getInstructions,
+  addRecipes,
 };
 
 
@@ -38,5 +39,11 @@ function getInstructions(recipe_id) {
     )
     .join("instructions as i", "i.recipe_id", "=", "r.id")
     .where("recipe_id", recipe_id)
+};
+
+function addRecipes(recipe) {
+    return db("recipes")
+    .insert(recipe)
+    .then(ids => ({ id: ids[0] }));  
 };
 
