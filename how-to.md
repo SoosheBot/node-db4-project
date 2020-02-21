@@ -8,7 +8,7 @@
         "server": "nodemon index.js"
     },
 
-4. install `npm` with `npm i`, then download your dependencies -- `npm i knex sqlite3 nodemon express helmet cors` and whatever other dependencies you need/want. 
+4. install `npm` with `npm i`, then download your dependencies -- `npm i knex knex-cleaner sqlite3 nodemon express helmet cors dotenv` and whatever other dependencies you need/want. 
 
 5. create your `knexfile.js` with `knex init` or `npx knex init`
 
@@ -71,5 +71,6 @@ Once you have added in the relevant info and made however many tables you want (
     module.exports = db;
 
 Then you can run your migrations and seeds with `npx knex migrate:latest` and `npx knex seed:run`. Note--Any time you run a `npx knex migrate:latest`, you need to rerun your seeds. (You can also run it to reset your Insomnia file, if you like.)
+
 
 
