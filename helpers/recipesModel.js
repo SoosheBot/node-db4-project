@@ -3,8 +3,8 @@ const db = require("../data/dbConfig");
 module.exports = {
   getRecipes,
   getIngredients,
-//   getRecipesById,
-//   getShoppingList,
+  getRecipesId,
+  getShoppingList,
 //   getInstructions
 };
 
@@ -16,13 +16,16 @@ function getRecipes() {
 function getIngredients(){
     return db("ingredients")
 }
-// function getRecipes(id) {
-//     return db("recipes");
-// };
 
-// function getShoppingList(recipe_id) {
+function getRecipesId(id) {
+    return db("recipes")
+    .where({id})
+    .first();
+};
+
+function getShoppingList(recipe_id) {
         
-// };
+};
 
 // function getInstructions(recipe_id) {
 //     return db("instructions")
