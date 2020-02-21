@@ -54,18 +54,20 @@ router.get("/:id/shoppinglist", (req,res) => {
 
 router.get("/:id/instructions", (req,res) => {
     const { id } = req.params;
-    Recipes.getShoppingList(id)
-    .then(recipe => {
-        if (recipe) {
-            res.status(200).json(recipe);
+    Recipes.getInstructions(id)
+    .then(instruction => {
+        if (instruction) {
+            res.status(200).json(instruction);
         } else {
-            res.status(400).json({ errorMessage: "Could not find recipe with this ID"})
+            res.status(400).json({ errorMessage: "Could not find instructions with this recipe ID"})
         }    
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json({ errorMessage: 'Failed to get Recipes' });
+        res.status(500).json({ errorMessage: 'Failed to get instructions' });
     });
 });
+
+
 
 module.exports = router;

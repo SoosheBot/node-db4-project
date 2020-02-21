@@ -7,11 +7,11 @@ exports.up = function(knex, Promise) {
     .createTable("ingredients", tbl => {
       tbl.increments();
       tbl.string("ingredient", 128).notNullable();
-      tbl.integer("recipe_id")
-        .unsigned()
-        .notNullable()
-        .references("id")
-        .inTable("recipes");
+      // tbl.integer("recipe_id")
+      //   .unsigned()
+      //   .notNullable()
+      //   .references("id")
+      //   .inTable("recipes");
       tbl.float("quantity", [0]).notNullable();
       tbl.string("measurement");
     })
@@ -41,14 +41,14 @@ exports.up = function(knex, Promise) {
         .inTable("ingredients")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
-      tbl
-        .integer("step_id")
-        .unsigned()
-        .notNullable()
-        .references("id")
-        .inTable("instructions")
-        .onDelete("RESTRICT")
-        .onUpdate("CASCADE");
+      // tbl
+      //   .integer("step_id")
+      //   .unsigned()
+      //   .notNullable()
+      //   .references("id")
+      //   .inTable("instructions")
+      //   .onDelete("RESTRICT")
+      //   .onUpdate("CASCADE");
     });
 };
 
